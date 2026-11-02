@@ -1,8 +1,9 @@
 {
-  "generado": "2026-11-01T23:31:23.474Z",
+  "generado": "2026-11-02T01:18:23.395Z",
   "tarjetas": {
     "001": {
-      "estado": "libre"
+      "estado": "asignada",
+      "link": "https://search.google.com/local/writereview?placeid=ChIJ3TzX4C4ZzZERJpHm-IWBj2c"
     },
     "002": {
       "estado": "libre"
