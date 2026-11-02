@@ -5,7 +5,7 @@
 .c{max-width:380px;width:100%;background:#fff;border-radius:24px;padding:28px;text-align:center;box-shadow:0 20px 50px rgba(20,110,70,.15)}
 h1{font-size:22px;margin:0 0 8px}p{color:#5a6475;margin:0 0 18px;line-height:1.5}
 a.b{display:block;padding:13px;border-radius:99px;text-decoration:none;font-weight:600;margin-top:10px;background:linear-gradient(150deg,#b5efa0,#2fb37c 48%,#12855f);color:#fff}
-a.g{background:#eef6f1;color:#101826}p.h{font-size:13px;margin:8px 0 4px}.sp{width:34px;height:34px;border:3px solid #d6f0df;border-top-color:#12855f;border-radius:50%;margin:0 auto 14px;animation:r 1s linear infinite}@keyframes r{to{transform:rotate(360deg)}}</style></head>
+a.g{background:#eef6f1;color:#101826}.sp{width:34px;height:34px;border:3px solid #d6f0df;border-top-color:#12855f;border-radius:50%;margin:0 auto 14px;animation:r 1s linear infinite}@keyframes r{to{transform:rotate(360deg)}}</style></head>
 <body><div class="c" id="c"><div class="sp"></div><p>Abriendo reseñas…</p></div>
 <script>
 (function(){
@@ -15,14 +15,7 @@ a.g{background:#eef6f1;color:#101826}p.h{font-size:13px;margin:8px 0 4px}.sp{wid
   function show(t,m){box.innerHTML='<h1>'+t+'</h1><p>'+m+'</p>'+"593963278186".replace(/^(.+)$/,'<a class="b" href="https://wa.me/$1">Escríbeme por WhatsApp</a>')+"josue_herrera09".replace(/^(.+)$/,'<a class="b g" href="https://instagram.com/$1">@$1 en Instagram</a>')}
   fetch('tarjetas.json?v='+Date.now()).then(function(r){return r.json()}).then(function(d){
     var t=d.tarjetas&&d.tarjetas[id];
-    if(t&&t.estado==='asignada'&&/^https?:\/\//.test(t.link)){
-      var ios=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
-      var pid=(t.link.match(/[?&]placeid=([^&#]+)/)||[])[1];
-      if(ios&&pid){
-        var maps='https://www.google.com/maps/search/?api=1&query=Google&query_place_id='+pid;
-        box.innerHTML='<h1>Déjanos tu reseña</h1><p>Elige cómo abrir Google:</p><a class="b" href="'+maps+'">Abrir en la app Google Maps</a><p class="h">En la app toca <b>Opiniones</b> → <b>Escribir una opinión</b>.</p><a class="b g" href="'+t.link+'">Continuar en el navegador</a>';
-        return}
-      location.replace(t.link);return}
+    if(t&&t.estado==='asignada'&&/^https?:\/\//.test(t.link)){location.replace(t.link);return}
     if(t&&t.estado==='pausada'){show('Tarjeta en pausa','Esta tarjeta de reseñas no está activa por ahora.');return}
     show('Tarjeta disponible','Esta tarjeta de reseñas con NFC todavía no está asignada a un negocio. ¿La quieres para el tuyo?');
   }).catch(function(){show('No se pudo abrir','Revisa tu conexión e intenta de nuevo.')});
