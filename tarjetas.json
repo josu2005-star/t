@@ -1,5 +1,5 @@
 {
-  "generado": "2026-11-02T01:42:07.606Z",
+  "generado": "2026-11-03T23:28:24.760Z",
   "tarjetas": {
     "001": {
       "estado": "libre"
@@ -8,7 +8,8 @@
       "estado": "libre"
     },
     "003": {
-      "estado": "libre"
+      "estado": "asignada",
+      "link": "https://search.google.com/local/writereview?placeid=ChIJ3TzX4C4ZzZERJpHm-IWBj2c"
     },
     "004": {
       "estado": "libre"
