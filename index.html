@@ -12,7 +12,7 @@ a.g{background:#eef6f1;color:#101826}.sp{width:34px;height:34px;border:3px solid
   var id=(location.search.replace(/^\?/,'').split('&')[0]||location.hash.slice(1)).replace(/[^0-9]/g,'');
   while(id.length&&id.length<3)id='0'+id;
   var box=document.getElementById('c');
-  function show(t,m){box.innerHTML='<h1>'+t+'</h1><p>'+m+'</p>'+"593963278186".replace(/^(.+)$/,'<a class="b" href="https://wa.me/$1">Escríbeme por WhatsApp</a>')+"josue_herrera09".replace(/^(.+)$/,'<a class="b g" href="https://instagram.com/$1">@$1 en Instagram</a>')}
+  function show(t,m){box.innerHTML='<h1>'+t+'</h1><p>'+m+'</p>'+"593963278186".replace(/^(.+)$/,'<a class="b" href="https://wa.me/$1">Escríbeme por WhatsApp</a>')+"josu_herrera09".replace(/^(.+)$/,'<a class="b g" href="https://instagram.com/$1">@$1 en Instagram</a>')}
   fetch('tarjetas.json?v='+Date.now()).then(function(r){return r.json()}).then(function(d){
     var t=d.tarjetas&&d.tarjetas[id];
     if(t&&t.estado==='asignada'&&/^https?:\/\//.test(t.link)){location.replace(t.link);return}
