@@ -42,8 +42,8 @@ h1{margin:6px 0 0;font-size:28px;font-weight:700;text-shadow:0 1px 12px rgba(40,
   <div><h1>Grabar chips NFC</h1><p class="sub">Copia el enlace de cada tarjeta y grábalo con NFC Tools.</p></div>
   <section class="card"><ol class="steps">
     <li>Toca <b>Copiar enlace</b>.</li>
-    <li>En NFC Tools: Escribir → Agregar un registro → URL/URI → pega.</li>
-    <li>Toca Escribir y acerca el chip de esa tarjeta.</li>
+    <li>En NFC Tools: Write → Add a record → URL/URI → pega en el campo (el https:// ya viene puesto en la app) → ✓.</li>
+    <li>Toca Write y acerca el chip de esa tarjeta.</li>
     <li>Vuelve aquí y toca <b>Marcar grabada</b>. Pasa sola a la siguiente.</li>
   </ol></section>
   <section class="card"><div class="prog"><b id="cnt">0</b><span class="sub">de 50 grabadas</span></div><div class="bar"><i id="bar"></i></div></section>
@@ -55,7 +55,7 @@ h1{margin:6px 0 0;font-size:28px;font-weight:700;text-shadow:0 1px 12px rgba(40,
 <div class="toast" id="toast"></div>
 <script>
 (function(){
-  var BASE='https://josu2005-star.github.io/t/?', N=50, KEY='nfc-grabadas';
+  var BASE='josu2005-star.github.io/t/?', N=50, KEY='nfc-grabadas';
   function pad(n){return ('00'+n).slice(-3)}
   var done={}; try{done=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
   function save(){try{localStorage.setItem(KEY,JSON.stringify(done))}catch(e){}}
