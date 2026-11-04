@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Grabar chips NFC</title>
+<meta name="robots" content="noindex">
+<style>
+:root{--ink:#fff;--muted:rgba(255,255,255,.7);--glass:rgba(140,145,146,.32);--line:rgba(255,255,255,.18);--ok:#c6f1d8;--dark:#1f2a36}
+*{box-sizing:border-box}
+html{background:#7a9db2}
+body{margin:0;min-height:100vh;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;color:var(--ink);
+background:radial-gradient(70% 55% at 50% 50%,#5d8fab 0%,#8fb5c0 45%,#c9cfc6 75%,#e6dccd 100%) fixed;
+padding:max(20px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) 40px max(16px,env(safe-area-inset-left))}
+.wrap{max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+h1{margin:6px 0 0;font-size:28px;font-weight:700;text-shadow:0 1px 12px rgba(40,60,80,.35)}
+.sub{margin:0;color:var(--muted);font-size:14px}
+.card{background:var(--glass);border:1px solid var(--line);border-radius:28px;padding:18px;-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px)}
+.steps{margin:0;padding-left:20px;font-size:14px;line-height:1.55;color:rgba(255,255,255,.9)}
+.prog{display:flex;align-items:baseline;gap:8px}
+.prog b{font-size:34px;font-weight:600;line-height:1}
+.bar{height:6px;border-radius:9px;background:rgba(255,255,255,.2);overflow:hidden;margin-top:10px}
+.bar i{display:block;height:100%;background:#fff;width:0;transition:width .4s}
+.next{display:flex;flex-direction:column;gap:10px}
+.next .num{font-size:44px;font-weight:600;line-height:1}
+.url{font-size:13px;color:var(--muted);word-break:break-all}
+.btn{appearance:none;border:0;border-radius:99px;min-height:50px;padding:10px 20px;font-family:inherit;font-weight:600;font-size:16px;line-height:1;cursor:pointer;background:#fff;color:var(--dark);box-shadow:0 8px 20px rgba(30,45,60,.18)}
+.btn.ghost{background:rgba(255,255,255,.16);color:#fff;border:1px solid var(--line);box-shadow:none}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.list{display:flex;flex-direction:column;gap:8px}
+.item{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px 10px 10px 14px;border-radius:20px;background:var(--glass);border:1px solid var(--line)}
+.item .n{font-size:20px;font-weight:600}
+.item .u{font-size:12px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.item.done{opacity:.55}
+.item.done .n::after{content:" ✓";color:var(--ok)}
+.item.cur{border-color:#fff;box-shadow:0 0 0 2px rgba(255,255,255,.35)}
+.mini{display:flex;gap:6px}
+.mini button{appearance:none;border:1px solid var(--line);background:rgba(255,255,255,.16);color:#fff;border-radius:99px;padding:9px 12px;font-family:inherit;font-weight:600;font-size:13px}
+.mini button.c{background:#fff;color:var(--dark);border-color:#fff}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translateX(-50%);background:#fff;color:var(--dark);padding:11px 18px;border-radius:99px;font-weight:600;font-size:14px;opacity:0;transition:opacity .2s;pointer-events:none;box-shadow:0 10px 26px rgba(30,45,60,.25)}
+.toast.on{opacity:1}
+.foot{font-size:12px;color:var(--muted);text-align:center}
+</style></head>
+<body><div class="wrap">
+  <div><h1>Grabar chips NFC</h1><p class="sub">Copia el enlace de cada tarjeta y grábalo con NFC Tools.</p></div>
+  <section class="card"><ol class="steps">
+    <li>Toca <b>Copiar enlace</b>.</li>
+    <li>En NFC Tools: Escribir → Agregar un registro → URL/URI → pega.</li>
+    <li>Toca Escribir y acerca el chip de esa tarjeta.</li>
+    <li>Vuelve aquí y toca <b>Marcar grabada</b>. Pasa sola a la siguiente.</li>
+  </ol></section>
+  <section class="card"><div class="prog"><b id="cnt">0</b><span class="sub">de 50 grabadas</span></div><div class="bar"><i id="bar"></i></div></section>
+  <section class="card next" id="next"></section>
+  <div class="list" id="list"></div>
+  <button class="btn ghost" id="reset" type="button">Reiniciar marcas</button>
+  <p class="foot">Las marcas se guardan solo en este celular.</p>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+(function(){
+  var BASE='https://josu2005-star.github.io/t/?', N=50, KEY='nfc-grabadas';
+  function pad(n){return ('00'+n).slice(-3)}
+  var done={}; try{done=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(done))}catch(e){}}
+  function toast(t){var el=document.getElementById('toast');el.textContent=t;el.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(function(){el.classList.remove('on')},1600)}
+  function copy(txt){
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(function(){toast('Enlace copiado')},fallback)}else fallback();
+    function fallback(){var ta=document.createElement('textarea');ta.value=txt;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();ta.setSelectionRange(0,999);try{document.execCommand('copy');toast('Enlace copiado')}catch(e){toast('Mantén presionado el enlace para copiar')}document.body.removeChild(ta)}
+  }
+  function nextNum(){for(var i=1;i<=N;i++)if(!done[pad(i)])return pad(i);return null}
+  function render(){
+    var c=0;for(var k in done)if(done[k])c++;
+    document.getElementById('cnt').textContent=c;document.getElementById('bar').style.width=(c/N*100)+'%';
+    var nx=nextNum(), box=document.getElementById('next');
+    box.innerHTML=nx?'<span class="sub">Siguiente tarjeta</span><span class="num">#'+nx+'</span><span class="url">'+BASE+nx+'</span><div class="row2"><button class="btn" data-copy="'+nx+'">Copiar enlace</button><button class="btn ghost" data-done="'+nx+'">Marcar grabada</button></div>'
+                   :'<span class="num">¡Listo!</span><span class="sub">Grabaste las 50 tarjetas. Pruébalas antes de bloquear los chips.</span>';
+    var h='';for(var i=1;i<=N;i++){var n=pad(i);h+='<div class="item'+(done[n]?' done':'')+(n===nx?' cur':'')+'"><span class="n">'+n+'</span><span class="u">'+BASE+n+'</span><span class="mini"><button class="c" data-copy="'+n+'">Copiar</button><button data-toggle="'+n+'">'+(done[n]?'Desmarcar':'✓')+'</button></span></div>'}
+    document.getElementById('list').innerHTML=h;
+  }
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('button');if(!b)return;
+    if(b.dataset.copy){copy(BASE+b.dataset.copy)}
+    else if(b.dataset.done){done[b.dataset.done]=true;save();render();toast('Tarjeta #'+b.dataset.done+' grabada');scrollTo({top:0,behavior:'smooth'})}
+    else if(b.dataset.toggle){var n=b.dataset.toggle;if(done[n])delete done[n];else done[n]=true;save();render()}
+    else if(b.id==='reset'){if(b.dataset.arm){done={};save();render();b.textContent='Reiniciar marcas';delete b.dataset.arm;toast('Marcas reiniciadas')}else{b.dataset.arm='1';b.textContent='Toca otra vez para confirmar'}}
+  });
+  render();
+})();
+</script>
+</body></html>
