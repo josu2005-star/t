@@ -1,53 +1,65 @@
 {
-  "generado": "2026-11-12T23:28:06.106Z",
+  "generado": "2026-11-12T23:32:27.380Z",
   "tarjetas": {
     "001": {
-      "estado": "libre"
+      "estado": "asignada",
+      "link": "https://search.google.com/local/writereview?placeid=ChIJpXPgMECP1ZERRZm9-RvfudQ"
     },
     "002": {
-      "estado": "libre"
+      "estado": "asignada",
+      "link": "https://search.google.com/local/writereview?placeid=ChIJ29dSJgCP1ZER49JP5gCkZBs"
     },
     "003": {
-      "estado": "libre"
+      "estado": "asignada",
+      "link": "https://search.google.com/local/writereview?placeid=ChIJ8-kIFO2P1ZERl91PyK433r4"
     },
     "004": {
       "estado": "asignada",
       "link": "https://search.google.com/local/writereview?placeid=ChIJh8dZ3MGP1ZEREeBbLs72I8o"
     },
     "005": {
-      "estado": "libre"
+      "estado": "asignada",
+      "link": "https://search.google.com/local/writereview?placeid=ChIJPWIiWiKJ1ZERbz220Y-lfQs"
     },
     "006": {
-      "estado": "libre"
+      "estado": "asignada",
+      "link": "https://search.google.com/local/writereview?placeid=ChIJC_K1eiiP1ZER-H2LGsE8IqQ"
     },
     "007": {
-      "estado": "libre"
+      "estado": "asignada",
+      "link": "https://search.google.com/local/writereview?placeid=ChIJy4DLoLuP1ZER7jiizMNJRRM"
     },
     "008": {
-      "estado": "libre"
+      "estado": "asignada",
+      "link": "https://search.google.com/local/writereview?placeid=ChIJt6DbQh6P1ZER1StrBXNKqUA"
     },
     "009": {
       "estado": "asignada",
       "link": "https://search.google.com/local/writereview?placeid=ChIJt744nV-P1ZERvmFaw3A0UuM"
     },
     "010": {
-      "estado": "libre"
+      "estado": "asignada",
+      "link": "https://search.google.com/local/writereview?placeid=ChIJ_9vGVV6P1ZERH_MzcgoQIBE"
     },
     "011": {
-      "estado": "libre"
+      "estado": "asignada",
+      "link": "https://search.google.com/local/writereview?placeid=ChIJyVwqAl-P1ZERqEPzAVs9kO8"
     },
     "012": {
       "estado": "asignada",
       "link": "https://search.google.com/local/writereview?placeid=ChIJtUrtf8eP1ZERSE4Lr1yq2lM"
     },
     "013": {
-      "estado": "libre"
+      "estado": "asignada",
+      "link": "https://search.google.com/local/writereview?placeid=ChIJ8VEScvaP1ZERp-QHpe2h6vw"
     },
     "014": {
-      "estado": "libre"
+      "estado": "asignada",
+      "link": "https://search.google.com/local/writereview?placeid=ChIJ449e9vyP1ZER3SKinmbjr_Q"
     },
     "015": {
-      "estado": "libre"
+      "estado": "asignada",
+      "link": "https://search.google.com/local/writereview?placeid=ChIJdbvZFl-P1ZERe7xAwU3018s"
     },
     "016": {
       "estado": "libre"
