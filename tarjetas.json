@@ -1,5 +1,5 @@
 {
-  "generado": "2026-11-17T16:19:38.207Z",
+  "generado": "2026-11-17T20:19:27.325Z",
   "tarjetas": {
     "001": {
       "estado": "asignada",
@@ -27,7 +27,7 @@
     },
     "007": {
       "estado": "asignada",
-      "link": "https://search.google.com/local/writereview?placeid=ChIJy4DLoLuP1ZER7jiizMNJRRM"
+      "link": "https://search.google.com/local/writereview?placeid=ChIJGTUlE-iP1ZER-ixjrTi6i8E"
     },
     "008": {
       "estado": "asignada",
@@ -38,7 +38,8 @@
       "link": "https://search.google.com/local/writereview?placeid=ChIJt744nV-P1ZERvmFaw3A0UuM"
     },
     "010": {
-      "estado": "libre"
+      "estado": "asignada",
+      "link": "https://search.google.com/local/writereview?placeid=ChIJGx43HV-P1ZERsf1yR2FNqk8"
     },
     "011": {
       "estado": "asignada",
@@ -46,7 +47,7 @@
     },
     "012": {
       "estado": "asignada",
-      "link": "https://search.google.com/local/writereview?placeid=ChIJtUrtf8eP1ZERSE4Lr1yq2lM"
+      "link": "https://search.google.com/local/writereview?placeid=ChIJjYuP7AaP1ZERurThQo2yuYI"
     },
     "013": {
       "estado": "asignada",
@@ -61,13 +62,16 @@
       "link": "https://www.google.com/maps/search/?api=1&query=Unidad+Educativa+Mision+Geodesica&query_place_id=ChIJc_UzOiOI1ZERMw8siW6g_zY"
     },
     "016": {
-      "estado": "libre"
+      "estado": "asignada",
+      "link": "https://www.instagram.com/uemisiongeodesica/"
     },
     "017": {
-      "estado": "libre"
+      "estado": "asignada",
+      "link": "https://www.facebook.com/colegioparticularmisiongeodesica"
     },
     "018": {
-      "estado": "libre"
+      "estado": "asignada",
+      "link": "https://www.tiktok.com/@colegiomisiongeodesica"
     },
     "019": {
       "estado": "libre"
