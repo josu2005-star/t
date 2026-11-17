@@ -1,5 +1,5 @@
 {
-  "generado": "2026-11-17T15:58:19.759Z",
+  "generado": "2026-11-17T16:19:38.207Z",
   "tarjetas": {
     "001": {
       "estado": "asignada",
@@ -58,7 +58,7 @@
     },
     "015": {
       "estado": "asignada",
-      "link": "https://search.google.com/local/writereview?placeid=ChIJc_UzOiOI1ZERMw8siW6g_zY"
+      "link": "https://www.google.com/maps/search/?api=1&query=Unidad+Educativa+Mision+Geodesica&query_place_id=ChIJc_UzOiOI1ZERMw8siW6g_zY"
     },
     "016": {
       "estado": "libre"
