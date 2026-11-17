@@ -1,5 +1,5 @@
 {
-  "generado": "2026-11-12T23:32:27.380Z",
+  "generado": "2026-11-17T15:58:19.759Z",
   "tarjetas": {
     "001": {
       "estado": "asignada",
@@ -38,8 +38,7 @@
       "link": "https://search.google.com/local/writereview?placeid=ChIJt744nV-P1ZERvmFaw3A0UuM"
     },
     "010": {
-      "estado": "asignada",
-      "link": "https://search.google.com/local/writereview?placeid=ChIJ_9vGVV6P1ZERH_MzcgoQIBE"
+      "estado": "libre"
     },
     "011": {
       "estado": "asignada",
@@ -59,7 +58,7 @@
     },
     "015": {
       "estado": "asignada",
-      "link": "https://search.google.com/local/writereview?placeid=ChIJdbvZFl-P1ZERe7xAwU3018s"
+      "link": "https://search.google.com/local/writereview?placeid=ChIJc_UzOiOI1ZERMw8siW6g_zY"
     },
     "016": {
       "estado": "libre"
