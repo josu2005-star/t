@@ -1,21 +1,19 @@
 {
-  "generado": "2026-11-17T20:19:27.325Z",
+  "generado": "2026-11-18T20:26:54.973Z",
   "tarjetas": {
     "001": {
       "estado": "asignada",
       "link": "https://search.google.com/local/writereview?placeid=ChIJpXPgMECP1ZERRZm9-RvfudQ"
     },
     "002": {
-      "estado": "asignada",
-      "link": "https://search.google.com/local/writereview?placeid=ChIJ29dSJgCP1ZER49JP5gCkZBs"
+      "estado": "libre"
     },
     "003": {
       "estado": "asignada",
       "link": "https://search.google.com/local/writereview?placeid=ChIJ8-kIFO2P1ZERl91PyK433r4"
     },
     "004": {
-      "estado": "asignada",
-      "link": "https://search.google.com/local/writereview?placeid=ChIJh8dZ3MGP1ZEREeBbLs72I8o"
+      "estado": "libre"
     },
     "005": {
       "estado": "asignada",
